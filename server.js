@@ -69,6 +69,20 @@ app.get('/createusertable',(req,res)=> {
     });
 });
 
+//Add question
+
+app.get('/postquestion',(req,res)=>{
+    let question = {qtitle:'Test',qdescription:"This is a sample question"};
+    let sql ='INSERT INTO question SET ?';
+    let query = db.query(sql,question,(err,result) => {
+        if(err) throw err;
+        console.log(result);
+        res.send('Question added successfully');
+    })
+})
+
+
+
 app.listen(port,()=>{
     console.log("Server is up and running on http://www.localhost: "+port);
 
