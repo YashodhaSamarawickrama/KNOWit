@@ -81,7 +81,7 @@ app.get('/postquestion',(req,res)=>{
     })
 })
 
-//Update question
+//Update question from questions table
 
 app.get('/updatequestion/:title',(req,res)=>{
     let newbody = "Sample description updated";
