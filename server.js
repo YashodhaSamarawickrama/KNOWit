@@ -97,7 +97,7 @@ app.get('/updatequestion/:title',(req,res)=>{
 
 //Delete a question
 
-app.get('/deleteequestion/:title',(req,res)=>{
+app.get('/deletequestion/:title',(req,res)=>{
 
     let sql =`DELETE FROM  question WHERE qtitle = ${req.params.title}`;
 
