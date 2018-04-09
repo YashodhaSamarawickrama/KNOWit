@@ -81,6 +81,20 @@ app.get('/postquestion',(req,res)=>{
     })
 })
 
+//Update question
+
+app.get('/updatequestion/:title',(req,res)=>{
+    let newbody = "Sample description updated";
+
+    let sql =`UPDATE question SET qdescription = ${newbody} WHERE title = ${req.params.title}`;
+
+    let query = db.query(sql,(err,result) => {
+        if(err) throw err;
+        console.log(result);
+        res.send('Question updated successfully');
+    });
+});
+
 
 
 app.listen(port,()=>{
