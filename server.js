@@ -95,7 +95,18 @@ app.get('/updatequestion/:title',(req,res)=>{
     });
 });
 
+//Delete a question
 
+app.get('/deleteequestion/:title',(req,res)=>{
+
+    let sql =`DELETE FROM  question WHERE qtitle = ${req.params.title}`;
+
+    let query = db.query(sql,(err,result) => {
+        if(err) throw err;
+        console.log(result);
+        res.send('Question deleted successfully');
+    });
+});
 
 app.listen(port,()=>{
     console.log("Server is up and running on http://www.localhost: "+port);
